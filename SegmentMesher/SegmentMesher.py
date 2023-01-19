@@ -771,7 +771,7 @@ class SegmentMesherLogic(ScriptedLoadableModuleLogic):
         backgroundMeshRemover = vtk.vtkThreshold()
         backgroundMeshRemover.SetInputData(mesh)
         backgroundMeshRemover.SetInputArrayToProcess(0, 0, 0, vtk.vtkDataObject.FIELD_ASSOCIATION_CELLS, vtk.vtkDataSetAttributes.SCALARS)
-        backgroundMeshRemover.ThresholdByUpper(1)
+        backgroundMeshRemover.Upper(1)
         outputMeshNode.SetUnstructuredGridConnection(backgroundMeshRemover.GetOutputPort())
       else:
         outputMeshNode.SetUnstructuredGridConnection(transformer.GetOutputPort())
